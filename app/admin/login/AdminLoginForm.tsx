@@ -35,7 +35,7 @@ export default function AdminLoginForm() {
 
       // Admin huquqini tekshirish
       const { data: profile } = await supabase
-        .from('users')
+        .from('profiles')
         .select('role')
         .eq('id', data.user.id)
         .single();
