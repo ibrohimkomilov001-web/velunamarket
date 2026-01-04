@@ -25,6 +25,7 @@ import { CatalogPage } from './components/CatalogPage';
 import { AdminPanel } from './components/AdminPanel';
 import { AdminLogin } from './components/AdminLogin';
 import { LiveChat } from './components/LiveChat'; // YANGI: LiveChat qo'shildi
+import { PullToRefresh } from './components/PullToRefresh'; // YANGI: Pull to refresh
 import { Toaster, toast } from 'sonner';
 import velunaLogo from '../assets/baf0346f0835fb0b504a5666d91b4966fa0d97a4.png';
 
@@ -382,8 +383,23 @@ export default function App() {
   const totalCartItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const unreadNotifications = notifications.filter(n => !n.read).length;
 
+  // YANGI: Pull to refresh funksiyasi
+  const handleRefresh = async () => {
+    // Sahifani yangilash simulyatsiyasi
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Mahsulotlarni qayta yuklash
+    const savedProducts = localStorage.getItem('veluna_admin_products');
+    if (savedProducts) {
+      setProducts(JSON.parse(savedProducts));
+    }
+    
+    toast.success('Sahifa yangilandi!');
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-20 md:pb-0 transition-colors">
+    <PullToRefresh onRefresh={handleRefresh}>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-20 md:pb-0 transition-colors">
       
       {/* Show CatalogPage when activeTab is 'catalog' */}
       {activeTab === 'catalog' ? (
@@ -658,5 +674,6 @@ export default function App() {
         onExternalOpenChange={setLiveChatOpen}
       /> {/* YANGI: LiveChat qo'shildi */}
     </div>
+    </PullToRefresh>
   );
 }
