@@ -26,7 +26,7 @@ import { AdminPanel } from './components/AdminPanel';
 import { AdminLogin } from './components/AdminLogin';
 import { LiveChat } from './components/LiveChat'; // YANGI: LiveChat qo'shildi
 import { Toaster, toast } from 'sonner';
-import velunaLogo from 'figma:asset/baf0346f0835fb0b504a5666d91b4966fa0d97a4.png';
+import velunaLogo from '../assets/baf0346f0835fb0b504a5666d91b4966fa0d97a4.png';
 
 // Type definitions
 interface Product {

@@ -1,6 +1,6 @@
 import { CreditCard, Smartphone } from 'lucide-react';
 import { useState } from 'react';
-import paymeLogoImg from 'figma:asset/6a7d848ff81da8bb8fe154e7f4b7124c852cb03f.png';
+import paymeLogoImg from '../../assets/6a7d848ff81da8bb8fe154e7f4b7124c852cb03f.png';
 
 interface PaymentMethodsProps {
   selectedMethod: string;

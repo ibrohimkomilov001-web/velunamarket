@@ -1,6 +1,6 @@
 import { ShoppingCart, Search, User, Menu, Heart, Bell, Moon, Sun, Globe, Shield, MessageCircle } from 'lucide-react';
 import { LanguageSelector } from './LanguageSelector';
-import velunaLogo from 'figma:asset/baf0346f0835fb0b504a5666d91b4966fa0d97a4.png';
+import velunaLogo from '../../assets/baf0346f0835fb0b504a5666d91b4966fa0d97a4.png';
 
 interface HeaderProps {
   cartItemCount: number;
